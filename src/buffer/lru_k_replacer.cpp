@@ -53,6 +53,9 @@ auto LRUKReplacer::Evict(frame_id_t *frame_id) -> bool {
 
 void LRUKReplacer::RecordAccess(frame_id_t frame_id, [[maybe_unused]] AccessType access_type) {
   std::lock_guard<std::mutex> lock(latch_);
+  if(frame_id>static_cast<int>(replacer_size_)) {
+    throw std::exception();
+  }
   access_count_[frame_id]++;
   if(access_count_[frame_id] ==k_){
     //remove node from node_list_ to buffer_list_

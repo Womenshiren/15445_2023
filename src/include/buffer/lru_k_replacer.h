@@ -30,9 +30,9 @@ class LRUKNode {
   /** History of last seen K timestamps of this page. Least recent timestamp stored in front. */
   // Remove maybe_unused if you start using them. Feel free to change the member variables as you want.
   std::list<size_t> history_;
-  size_t k_;
-  frame_id_t fid_;
-  bool is_evictable_{false};
+  // size_t k_;
+  // frame_id_t fid_;
+  // bool is_evictable_{false};
 };
 
 /**
@@ -155,7 +155,7 @@ class LRUKReplacer {
   std::list<frame_id_t> node_list_;
   std::list<frame_id_t> buffer_list_;
   std::unordered_map<frame_id_t, bool> evict_map_;
-  size_t current_timestamp_{0};
+  // size_t current_timestamp_{0};
   size_t curr_size_{0};
   size_t replacer_size_;
   size_t k_;

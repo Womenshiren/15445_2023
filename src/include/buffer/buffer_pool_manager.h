@@ -147,6 +147,7 @@ class BufferPoolManager {
    *
    * @param page_id id of page to be flushed, cannot be INVALID_PAGE_ID
    * @return false if the page could not be found in the page table, true otherwise
+   * try to add to master
    */
   auto FlushPage(page_id_t page_id) -> bool;
 
